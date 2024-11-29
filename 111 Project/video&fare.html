@@ -1,0 +1,227 @@
+<html>
+<head>
+    <title>Fare Matrix</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .video-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .video-container {
+            width: 48%;
+            text-align: center;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+        .fare-matrix {
+            margin: 20px 0;
+        }
+        .fare-matrix table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .fare-matrix th, .fare-matrix td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .fare-matrix th {
+            background-color: #333;
+            color: white;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Video & Fare Matrix</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="attraction.html">Attractions</a></li>
+            <li><a href="commodities.html">Commodities</a></li>
+            <li><a href="video&fare.html">Fare Matrix</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="video-section">
+            <div class="video-container">
+                <h2>Siargao Islands</h2>
+                <video controls>
+                    <source src="src/Siargao.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-container">
+                <h2>Dinagat Islands</h2>
+                <video controls>
+                    <source src="src/Dinagat.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="fare-matrix">
+            <h3>Fare Matrix to Dinagat Islands</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Fare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Surigao City(Boulevard)&(Port of Macapagal)</td>
+                        <td>Dinagat Islands</td>
+                        <td>₱160</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="fare-matrix">
+            <h2>Fare Matrix to Siargao islands</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Fare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Manila(connecting)</td>
+                        <td>Siargao, Del Carmen(IAO)</td>
+                        <td>₱9,470</td>
+                    </tr>
+                    <tr>
+                        <td>Manila(Nonstop)</td>
+                        <td>Siargao, Del Carmen(IAO)</td>
+                        <td>₱9,875</td>
+                    </tr>
+                    <tr>
+                        <td>Cebu(Nonstop)</td>
+                        <td>Siargao, Del Carmen(IAO)</td>
+                        <td>₱3,223</td>
+                    </tr>
+                    <tr>
+                        <td>Surigao City(Port of Macapagal)</td>
+                        <td>Siargao, Dapa(IAO)</td>
+                        <td>₱320-₱480</td>
+                    </tr>
+                    <tr>
+                        <td>Surigao City(Boulevard)</td>
+                        <td>Siargao, Dapa(IAO)</td>
+                        <td>₱280-320</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        // Get the video elements
+        const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
+
+        // Get the video containers
+        const videoContainer1 = video1.closest('.video-container');
+        const videoContainer2 = video2.closest('.video-container');
+
+        // Function to check the scroll position and play videos
+        function checkScrollPosition() {
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            // Check if video1 container is in view
+            const video1Top = videoContainer1.getBoundingClientRect().top;
+            const video1Bottom = videoContainer1.getBoundingClientRect().bottom;
+
+            if (video1Top < windowHeight && video1Bottom >= 0) {
+                video1.play().catch(error => {
+                    console.log('Autoplay was prevented:', error);
+                });
+                video2.pause();
+            } else {
+                video1.pause();
+            }
+
+            // Check if video2 container is in view
+            const video2Top = videoContainer2.getBoundingClientRect().top;
+            const video2Bottom = videoContainer2.getBoundingClientRect().bottom;
+
+            if (video2Top < windowHeight && video2Bottom >= 0) {
+                video2.play().catch(error => {
+                    console.log('Autoplay was prevented:', error);
+                });
+                video1.pause();
+            } else {
+                video2.pause();
+            }
+        }
+
+        // Add event listeners for scroll and resize
+        window.addEventListener('scroll', checkScrollPosition);
+        window.addEventListener('resize', checkScrollPosition);
+
+        // Initial check on page load
+        checkScrollPosition();
+
+        // Mute videos to help with autoplay
+        video1.muted = true;
+        video2.muted = true;
+    </script>
+</body>
+</html>

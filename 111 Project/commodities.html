@@ -1,0 +1,249 @@
+    <html>
+    <head>
+    <title>
+    Hotel Suggestions
+    </title>
+    <style>
+    body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .header {
+                text-align: center;
+                padding: 20px 0;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            .filter-bar {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .filter-bar select, .filter-bar button {
+                padding: 10px;
+                font-size: 1em;
+            }
+            .hotel-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .hotel-item {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow: hidden;
+                width: calc(33.333% - 20px);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .hotel-item img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+            .hotel-info {
+                padding: 15px;
+            }
+            .hotel-info h3 {
+                margin: 0 0 10px;
+                font-size: 1.5em;
+            }
+            .hotel-info p {
+                margin: 0 0 10px;
+                color: #666;
+            }
+            .hotel-info .price {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #333;
+            }
+            nav {
+                background-color: #333;
+                padding: 10px 0;
+            }
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.2em;
+            }
+            nav ul li a:hover {
+                text-decoration: underline;
+            }
+    </style>
+    </head>
+    <body>
+    <nav>
+    <ul>
+        <li>
+        <a href="index.html">
+        Home
+        </a>
+        </li>
+        <li>
+        <a href="attraction.html">
+        Attractions
+        </a>
+        </li>
+        <li>
+        <a href="commodities.html">
+        Commodities
+        </a>
+        </li>
+        <li>
+            <a href="video&fare.html">
+            Video & Fare
+            </a>
+            </li>
+    </ul>
+    </nav>
+    <div class="container">
+    <div class="header">
+        <h1>
+        Commodities in the Islands
+        </h1>
+    </div>
+    <div class="filter-bar">
+        <select id="area-select">
+        <option value="all">
+        All Areas
+        </option>
+        <option value="island1">
+        Siargao
+        </option>
+        <option value="island2">
+        Dinagat
+        </option>
+        </select>
+        <button id="sort-button">
+        Sort by Price: Low to High
+        </button>
+    </div>
+    <div class="hotel-list" id="hotel-list">
+        <div class="hotel-item" data-area="island1" data-price="200">
+        <img alt="A luxurious hotel with a beautiful sea view on Island 1" height="200" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/473351910.jpg?k=61aeea174aab809715ee93af80e1a826d03641a430ff1acbb2a4d5862fd0a26a&o=&hp=1" width="300"/>
+        <div class="hotel-info">
+        <h3>
+            DaRosa Del Mar
+        </h3>
+        <p>
+        Siargao
+        </p>
+        <p class="price">
+        $34 per night
+        </p>
+        </div>
+        </div>
+        <div class="hotel-item" data-area="island2" data-price="150">
+        <img alt="A cozy hotel with a garden view on Island 2" height="200" src="https://imgs.search.brave.com/kISHc2Qgo334eBatxXR6WJ-FU0FPrc1hVA5uvYF3EBM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zYW5k/ZWUuY29tL19uZXh0/L2ltYWdlP3VybD1o/dHRwczovL2xoNS5n/b29nbGV1c2VyY29u/dGVudC5jb20vcC9B/RjFRaXBOTFVZMWZi/Zk9Cc3VrNVJtb3Zw/N190eHdMOHVMT3Rx/ZGtlVGktdCZ3PTM4/NDAmcT03NQ.jpeg" width="300"/>
+        <div class="hotel-info">
+        <h3>
+        Pagkawasan Garden Beach Resort
+        </h3>
+        <p>
+        Dinagat Islands
+        </p>
+        <p class="price">
+        $80 per night
+        </p>
+        </div>
+        </div>
+        <div class="hotel-item" data-area="island1" data-price="300">
+        <img alt="A luxurious hotel with a mountain view on Island 1" height="200" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/519083074.jpg?k=5e3b13ae51d7473fbcd52910149a6e83700ec75c34a0df482a2b62c583e604d9&o=&hp=1" width="300"/>
+        <div class="hotel-info">
+        <h3>
+        Kajali Siargao
+        </h3>
+        <p>
+        Siargao
+        </p>
+        <p class="price">
+        $110 per night
+        </p>
+        </div>
+        </div>
+        <div class="hotel-item" data-area="island1" data-price="100">
+        <img alt="A budget-friendly hotel with a city view on Island 1" height="200" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/516269599.jpg?k=e327db95c7da3d2e79d7f5ba296ba390de5d7b2b96f44a6467ec6c422121e463&o=&hp=1" width="300"/>
+        <div class="hotel-info">
+        <h3>
+            Bamboo Surf Beach Resort & Hotel
+        </h3>
+        <p>
+        Siargao
+        </p>
+        <p class="price">
+        $86 per night
+        </p>
+        </div>
+        </div>
+        <div class="hotel-item" data-area="island2" data-price="250">
+        <img alt="A modern hotel with a beach view on Island 2" height="200" src="https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/385874689_295729786562848_517338950295764387_n.jpg?stp=dst-jpg_s960x960&_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeH4Ni44EBWeoCx7EA2XMD5fW6wL8oGvMzlbrAvyga8zOV20RBX4-UnHBM82qO1yjCGJJdMrA3eM305xMpopLcMj&_nc_ohc=DT72OZVwsXkQ7kNvgFc1n2b&_nc_zt=23&_nc_ht=scontent.fceb1-2.fna&_nc_gid=AS4XEdYWgaxzUIN0ahkax7y&oh=00_AYAMdw3KjcFKdjDFHnqktS64ayd5Ijfjvh2Mfx0KGQPmFw&oe=674B82AE" width="300"/>
+        <div class="hotel-info">
+        <h3>
+        Banuyo Beach Resort
+        </h3>
+        <p>
+        Dinagat islands
+        </p>
+        <p class="price">
+        $100 per night
+        </p>
+        </div>
+        </div>
+        <div class="hotel-item" data-area="island2" data-price="180">
+        <img alt="A charming hotel with a forest view on Island 3" height="200" src="https://scontent.fceb1-3.fna.fbcdn.net/v/t39.30808-6/292185171_493102939287547_2795670301465350414_n.jpg?stp=dst-jpg_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFmTDR2jrt9vcz-XttSjiaZ71ykft9tYmbvXKR-321iZuq1sbOOtan9MUTJ7aEEPjHxajoUnWLp7IRyJEP_ffNy&_nc_ohc=lOUFmH_ZZcwQ7kNvgFkAqzz&_nc_zt=23&_nc_ht=scontent.fceb1-3.fna&_nc_gid=AHzA1AJoFQ220phXV4NC3Kb&oh=00_AYAsjkRqaukzjmssBWSFdg8y80nOj05utZYUPsAi_w6inQ&oe=674B9EDF" width="300"/>
+        <div class="hotel-info">
+        <h3>
+            Bitaog Beach Resort
+        </h3>
+        <p>
+        Dinagat Islands
+        </p>
+        <p class="price">
+        $90 per night
+        </p>
+        </div>
+        </div>
+    </div>
+    </div>
+    <script>
+    document.getElementById('sort-button').addEventListener('click', function() {
+                let hotelList = document.getElementById('hotel-list');
+                let hotels = Array.from(hotelList.getElementsByClassName('hotel-item'));
+                hotels.sort((a, b) => parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price')));
+                hotelList.innerHTML = '';
+                hotels.forEach(hotel => hotelList.appendChild(hotel));
+            });
+
+            document.getElementById('area-select').addEventListener('change', function() {
+                let selectedArea = this.value;
+                let hotels = document.getElementsByClassName('hotel-item');
+                Array.from(hotels).forEach(hotel => {
+                    if (selectedArea === 'all' || hotel.getAttribute('data-area') === selectedArea) {
+                        hotel.style.display = 'block';
+                    } else {
+                        hotel.style.display = 'none';
+                    }
+                });
+            });
+    </script>
+    </body>
+    </html>
